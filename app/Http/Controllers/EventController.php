@@ -56,7 +56,7 @@ class EventController extends Controller
         $data->eng_dakini=$request->eng_dakini;
         $data->eng_good_direction=$request->eng_good_direction;
         $data->save();
-
+        
         return redirect()->back()->with('message', 'Added Successfully!');
     }
 
@@ -68,6 +68,12 @@ class EventController extends Controller
                         ->join('months', 'months.id', '=', 'events.month_id')
                         ->join('days', 'days.id', '=', 'events.day_id')
                         ->where('date','=', $date)->get();
+
+        $check = event::where('date','=', $date)->exists();
+        if ($check){
         return $event;
+        }else {
+            return 'missing';
+        }
       } 
 }

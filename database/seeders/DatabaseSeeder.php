@@ -25,52 +25,40 @@ class DatabaseSeeder extends Seeder
         
         //Months
         DB::table('months')->insert([
-            'eng_month' => 'January',
-            'dzo_month' => 'ཟླ་ ༡ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༡ པ།'
         ]);
         DB::table('months')->insert([
-            'eng_month' => 'February',
-            'dzo_month' => 'ཟླ་ ༢ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༢ པ།'
         ]);
         DB::table('months')->insert([
-            'eng_month' => 'March',
-            'dzo_month' => 'ཟླ་ ༣ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༣ པ།'
         ]);
         DB::table('months')->insert([
-            'eng_month' => 'Apiril',
-            'dzo_month' => 'ཟླ་ ༤ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༤ པ།'
         ]);
         DB::table('months')->insert([
-            'eng_month' => 'May',
-            'dzo_month' => 'ཟླ་ ༥ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༥ པ།'
         ]);
         DB::table('months')->insert([
-            'eng_month' => 'June',
-            'dzo_month' => 'ཟླ་ ༦ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༦ པ།'
         ]);
         DB::table('months')->insert([
-            'eng_month' => 'July',
-            'dzo_month' => 'ཟླ་ ༧ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༧ པ།'
         ]);
         DB::table('months')->insert([
-            'eng_month' => 'August',
-            'dzo_month' => 'ཟླ་ ༨ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༨ པ།'
         ]);
         DB::table('months')->insert([
-            'eng_month' => 'September',
-            'dzo_month' => 'ཟླ་ ༩ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༩ པ།'
         ]);
         DB::table('months')->insert([
-            'eng_month' => 'October',
-            'dzo_month' => 'ཟླ་ ༡༠ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༡༠ པ།'
         ]);
         DB::table('months')->insert([
-            'eng_month' => 'November',
-            'dzo_month' => 'ཟླ་ ༡༡ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༡༡ པ།'
         ]);
         DB::table('months')->insert([
-            'eng_month' => 'December',
-            'dzo_month' => 'ཟླ་ ༡༢ པ།'
+            'dzo_month' => 'རང་ཟླ་ ༡༢ པ།'
         ]);
 
         // Days

@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('get_calendar/{month}', 'App\Http\Controllers\CalendarController@get_calendar');
-Route::get('view_events', 'App\Http\Controllers\EventController@view_events');
+
 Route::get('get_event/{date}', 'App\Http\Controllers\EventController@get_event');
+

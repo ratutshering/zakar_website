@@ -18,9 +18,6 @@
                     <x-jet-nav-link href="{{ route('year') }}" :active="request()->routeIs('year')">
                         {{ __('Year Type') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('show_calendar') }}" :active="request()->routeIs('show_calendar')">
-                        {{ __('Monthly Calender') }}    
-                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('event') }}" :active="request()->routeIs('event')">
                         {{ __('Zakar and Events') }}
                     </x-jet-nav-link>

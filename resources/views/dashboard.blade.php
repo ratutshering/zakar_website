@@ -23,7 +23,7 @@
       <tr>
         <td>{{$event->id}}</td>
         <td>{{$event->date}}</td>
-        <td>{{$event->month->eng_month}}</td>
+        <td>{{$event->month->dzo_month}}</td>
         <td>{{$event->day->eng_day}}</td>
         <td style="text-align: center;">
           <a href="{{url('show', $event->id)}}" class="btn btn-primary">View</a>

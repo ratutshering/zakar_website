@@ -14,9 +14,9 @@
             <div class="mb-10" style="margin-top: 3%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Month</h3></label>
                 <select class="form-control" id="exampleFormControlInput1" name="month_id">
-                <option value="{{$event->month_id}}" selected>{{$event->month->eng_month}}</option>
+                <option value="{{$event->month_id}}" selected>{{$event->month->dzo_month}}</option>
                     @foreach($months as $month)
-                        <option class="form-control" value="{{$month->id}}">{{$month->dzo_month}}, {{$month->eng_month}}</option>
+                        <option class="form-control" value="{{$month->id}}">{{$month->dzo_month}}</option>
                     @endforeach
                 </select>
             </div>

@@ -1,7 +1,6 @@
 <x-app-layout>
     <div class="container" style="padding-left: 15%; padding-right: 15%;">
-
-        @if(session()->has('message'))
+    @if(session()->has('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 15px;">
                         {{ session()->get('message') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -10,8 +9,10 @@
 
         <form action="{{route('create_event')}}" method="post" enctype="multipart/form-data" style="margin-bottom:10%;">
             @csrf
-            <div class="mb-10" style="margin-top: 5%;">
-                <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">གནམ་ལོ།</h3></label>
+
+          <div class="row g-3" style="margin-top: 5%;">
+            <div class="col-sm-6">
+            <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">གནམ་ལོ།</h3></label>
                 <select class="form-control" id="exampleFormControlInput1" name="year_id" required>
                 <option value="">Select Year</option>
                     @foreach($years as $year)
@@ -20,15 +21,29 @@
                 </select>
             </div>
 
-            <div class="mb-10" style="margin-top: 3%;">
-                <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Month</h3></label>
+            <div class="col-sm-6">
+            <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Month</h3></label>
                 <select class="form-control" id="exampleFormControlInput1" name="month_id" required>
                 <option value="">Select Month</option>
                     @foreach($months as $month)
-                        <option class="form-control" value="{{$month->id}}">{{$month->dzo_month}}, {{$month->eng_month}}</option>
+                        <option class="form-control" value="{{$month->id}}">{{$month->dzo_month}}</option>
                     @endforeach
                 </select>
             </div>
+          </div>
+
+          <div class="row g-3" style="margin-top: 3%;">
+            <div class="col-sm-6">
+                <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">ཚེས།</h3></label>
+                <input type="text" name="dzo_date" class="form-control" id="exampleFormControlInput1" placeholder="ཚེས།།" required>
+            </div>
+
+            <div class="col-sm-6">
+                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Date</h3></label>
+                <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="Date" required>
+            </div>
+          </div>
+
 
             <div class="mb-10" style="margin-top: 3%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Day</h3></label>
@@ -39,19 +54,10 @@
                     @endforeach
                 </select>
             </div>
-
-            <div class="mb-10" style="margin-top: 3%;">
-                <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Date</h3></label>
-                <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="Date" required>
-            </div>
-
-            <div class="mb-10" style="margin-top: 2%;">
-                <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">ཚེས།</h3></label>
-                <input type="text" name="dzo_date" class="form-control" id="exampleFormControlInput1" placeholder="ཚེས།།" required>
-            </div>
-
+            <br>
             <hr>
-            <h3 style="text-align:center; font-weight:bolder;">རྫོང་ཁ། (Dzongkha)</h3>
+            <br>
+            <h3 style="text-align:center; font-weight:bolder;">རྫོང་ཁ། (Dzongkha)</h3><br>
             <hr>
 
             <div class="mb-10" style="margin-top: 2%;">
@@ -76,36 +82,39 @@
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">འབད་བཏུབ།</h3></label>
-                <input type="text" name="dzo_good_day" class="form-control" id="exampleFormControlInput1" placeholder="འབད་བཏུབ།" required>
+                <textarea type="text" name="dzo_good_day" class="form-control" id="exampleFormControlInput1" placeholder="འབད་བཏུབ།" required></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">འབད་མ་བཏུབ།</h3></label>
-                <input type="text" name="dzo_bad_day" class="form-control" id="exampleFormControlInput1" placeholder="འབད་མ་བཏུབ།" required>
+                <textarea type="text" name="dzo_bad_day" class="form-control" id="exampleFormControlInput1" placeholder="འབད་མ་བཏུབ།" required></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">དུས་ཚོད་བཟང་པོ།</h3></label>
-                <input type="text" name="dzo_good_time" class="form-control" id="exampleFormControlInput1" placeholder="དུས་ཚོད་བཟང་པོ།" required>
+                <textarea type="text" name="dzo_good_time" class="form-control" id="exampleFormControlInput1" placeholder="དུས་ཚོད་བཟང་པོ།" ></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">བགེགས་ཀྱི་རྒྱུ་ལམ།</h3></label>
-                <input type="text" name="dzo_hindrance" class="form-control" id="exampleFormControlInput1" placeholder="བགེགས་ཀྱི་རྒྱུ་ལམ།" required>
+                <textarea type="text" name="dzo_hindrance" class="form-control" id="exampleFormControlInput1" placeholder="བགེགས་ཀྱི་རྒྱུ་ལམ།" required></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">མཁའ་འགྲོའི་རྒྱུ་ལམ།</h3></label>
-                <input type="text" name="dzo_dakini" class="form-control" id="exampleFormControlInput1" placeholder="མཁའ་འགྲོའི་རྒྱུ་ལམ།" required>
+                <textarea type="text" name="dzo_dakini" class="form-control" id="exampleFormControlInput1" placeholder="མཁའ་འགྲོའི་རྒྱུ་ལམ།" required></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">ཕྱོགས་བཟང་པོ།</h3></label>
-                <input type="text" name="dzo_good_direction" class="form-control" id="exampleFormControlInput1" placeholder="ཕྱོགས་བཟང་པོ།" required>
+                <textarea type="text" name="dzo_good_direction" class="form-control" id="exampleFormControlInput1" placeholder="ཕྱོགས་བཟང་པོ།" required></textarea>
             </div>
 
+            <br>
             <hr>
+            <br>
             <h3 style="text-align:center; font-weight:bolder;">English</h3>
+            <br>
             <hr>
 
             <div class="mb-10" style="margin-top: 2%;">
@@ -120,37 +129,37 @@
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Elemental Combination</h3></label>
-                <input type="text" name="eng_elemental_combination" class="form-control" id="exampleFormControlInput1" placeholder="Elemental Combination" required>
+                <textarea type="text" name="eng_elemental_combination" class="form-control" id="exampleFormControlInput1" placeholder="Elemental Combination" required></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Good Day</h3></label>
-                <input type="text" name="eng_good_day" class="form-control" id="exampleFormControlInput1" placeholder="Good Day" required>
+                <textarea type="text" name="eng_good_day" class="form-control" id="exampleFormControlInput1" placeholder="Good Day" required></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Bad Day</h3></label>
-                <input type="text" name="eng_bad_day" class="form-control" id="exampleFormControlInput1" placeholder="Bad Day" required>
+                <textarea type="text" name="eng_bad_day" class="form-control" id="exampleFormControlInput1" placeholder="Bad Day" required></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Good Time</h3></label>
-                <input type="text" name="eng_good_time" class="form-control" id="exampleFormControlInput1" placeholder="Good Time" required>
+                <textarea type="text" name="eng_good_time" class="form-control" id="exampleFormControlInput1" placeholder="Good Time" ></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Hindrance Avenue</h3></label>
-                <input type="text" name="eng_hindrance" class="form-control" id="exampleFormControlInput1" placeholder="Hindrance Avenue" required>
+                <textarea type="text" name="eng_hindrance" class="form-control" id="exampleFormControlInput1" placeholder="Hindrance Avenue" required></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Dakini's Avenue</h3></label>
-                <input type="text" name="eng_dakini" class="form-control" id="exampleFormControlInput1" placeholder="Dakini's Avenue" required>
+                <textarea type="text" name="eng_dakini" class="form-control" id="exampleFormControlInput1" placeholder="Dakini's Avenue" required></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 2%;">
                 <label for="exampleFormControlInput1" class="form-label"><h3 style="font-weight: bolder;">Good Direction</h3></label>
-                <input type="text" name="eng_good_direction" class="form-control" id="exampleFormControlInput1" placeholder="Good Direction" required>
+                <textarea type="text" name="eng_good_direction" class="form-control" id="exampleFormControlInput1" placeholder="Good Direction" required></textarea>
             </div>
 
             <div class="mb-10" style="margin-top: 5%; display: flex; justify-content: center; text-align:center;">
